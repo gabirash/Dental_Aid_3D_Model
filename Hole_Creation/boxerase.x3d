@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<X3D profile='Full' version='3.2'>
+	<Scene>
+		<Viewpoint DEF="VP" position='0 0 0.6' />
+		<Transform translation='0 0 0'>
+			<Group DEF="MYGROUP2">
+			<Shape DEF="MYBOX2">
+				<Appearance>
+					<Material DEF="MATERIAL2" diffuseColor='0 0 1' />
+						<FrictionalSurface dynamicFriction="0.6" staticFriction="0.6"/>
+				</Appearance>      
+				<Box DEF="BOX2" size='0.1 0.1 0.1' solid='true' />
+			</Shape>
+
+			<PythonScript DEF="PS2" url="boxerase2.py" />
+	
+			<ROUTE fromNode="BOX2" fromField="isTouched" 
+				   toNode="PS2" toField="eraseme" />
+			<ROUTE fromNode="BOX2" fromField="force" 
+				   toNode="PS2" toField="eraseme" />		 
+			<ROUTE fromNode="PS2" fromField="eraseme" 
+				   toNode="VP" toField="position" />
+				   
+			</Group>
+		</Transform>
+
+		
+	</Scene>
+</X3D>

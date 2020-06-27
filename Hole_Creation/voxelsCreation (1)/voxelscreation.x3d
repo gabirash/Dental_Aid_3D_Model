@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Group>
+	<Viewpoint position='0 0 1' />
+	<Group DEF="GROUP" />
+	<PythonScript DEF="PSP" url="voxelscreation.py">
+		<Group USE="GROUP" containerField="references"/>
+	</PythonScript>
+
+	<MouseSensor DEF="MS" />
+	
+	<ROUTE fromNode="MS" fromField="leftButton" 
+		   toNode="PSP" toField="add_vox" />
+	
+</Group>
