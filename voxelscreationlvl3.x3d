@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Group DEF="MACRO">
+
+	<Viewpoint position='0 0 0.75' />
+	
+	<Shape DEF="GUIT">
+		<Appearance DEF='A'>
+           <Material diffuseColor='1 0 0' />
+       </Appearance>
+		<Text DEF="TX" string='"Press Mouse Left Button to Start""and Wait a few Seconds..."'>
+		<FontStyle DEF='F' size='0.085' spacing='1.0' justify='MIDDLE'/>
+		</Text>
+	</Shape>
+	<Group DEF="GROUP" />
+	
+	<PythonScript DEF="PSP" url="voxelscreationlvl3.py">
+		<Group USE="GROUP" containerField="references"/>
+	</PythonScript>
+
+	<MouseSensor DEF="MS" />
+	
+	<ROUTE fromNode="MS" fromField="leftButton" 
+		   toNode="PSP" toField="add_vox" />
+	
+</Group>
